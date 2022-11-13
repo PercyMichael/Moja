@@ -10,11 +10,11 @@ const LeftBar = () =>
   return (
       <aside className="left w-1/5 min-h-full hidden md:block">
           
-          <LeftBarRow title="Concerts" icon={heart} />
-          <LeftBarRow title="Concerts" icon={heart} />
-          <LeftBarRow title="Concerts" icon={heart} />
-          <LeftBarRow title="Concerts" icon={heart} />
-          <LeftBarRow title="Concerts" icon={heart} />
+          <LeftBarRow title="Concerts"/>
+          <LeftBarRow title="Concerts" />
+          <LeftBarRow title="Concerts" />
+          <LeftBarRow title="Concerts" />
+          <LeftBarRow title="Concerts" />
     
       </aside>
   )
