@@ -3,6 +3,9 @@ import { Feed } from "../components/Feed"
 import LeftBar from "../components/LeftBar"
 import RightBar from "../components/RightBar"
 
+import { PrismaClient } from '@prisma/client'
+//const prisma = new PrismaClient()
+
 
 const Home:NextPage = () => {
   return (
