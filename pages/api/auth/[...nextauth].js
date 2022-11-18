@@ -13,7 +13,6 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-  adapter: PrismaAdapter(prisma),
   database: process.env.DATABASE_URL,
 };
 

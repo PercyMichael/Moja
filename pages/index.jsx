@@ -3,16 +3,22 @@ import { Feed } from "../components/Feed"
 import LeftBar from "../components/LeftBar"
 import RightBar from "../components/RightBar"
 
-import { PrismaClient } from '@prisma/client'
-//const prisma = new PrismaClient()
 
 
-const Home:NextPage = () => {
+
+const Home = () => {
+  
+
   return (
     <div className="container mx-auto md:max-h-screen overflow-hidden lg:max-w-7xl flex">
-      <LeftBar/>
-      <Feed />
-      <RightBar/>
+      <h1>Hy?</h1>
+      <h3></h3>
+      {
+      //<LeftBar/>
+      //<Feed />
+      //<RightBar/>
+        //
+      }
 
      
     </div>
