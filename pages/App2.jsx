@@ -6,13 +6,20 @@ export async function getServerSideProps() {
   return { props: { users: data } };
 }
 
-async function addUser() {
-  const data = await fetch("http://localhost:3000/api/add_user");
-}
-
 const App2 = ({ users }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  async function addUser(e) {
+    e.preventDefault();
+    const body = { name, email };
+    console.log(body);
+    const data = await fetch("http://localhost:3000/api/add_user", {
+      method: "POST",
+      body: JSON.stringify(body),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 
   return (
     <div className="mx-auto w-1/2 my-20">
@@ -22,8 +29,10 @@ const App2 = ({ users }) => {
         {users.map((user) => {
           return (
             <div>
-              <span className="font-bold text-blue-700">{user.name}</span> -{" "}
-              <span>{user.email}</span>
+              <span key={user.id}>
+                <span className="font-bold text-blue-700">{user.name}</span> -{" "}
+                <span>{user.email}</span>
+              </span>
             </div>
           );
         })}
@@ -32,7 +41,7 @@ const App2 = ({ users }) => {
       </div>
 
       <div>
-        <form>
+        <form onSubmit={addUser}>
           <input
             onChange={(e) => setName(e.target.value)}
             placeholder="Name"
@@ -45,6 +54,8 @@ const App2 = ({ users }) => {
             name="email"
             className="p-2 border"
           />
+          <br />
+          <input type="submit" value="send" />
         </form>
       </div>
 
