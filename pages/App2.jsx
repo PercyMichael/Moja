@@ -16,9 +16,7 @@ const App2 = ({ users }) => {
     const data = await fetch("http://localhost:3000/api/add_user", {
       method: "POST",
       body: JSON.stringify(body),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    }).then((res) => res.json());
   }
 
   return (
