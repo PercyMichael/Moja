@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { Feed } from "../components/Feed";
 import LeftBar from "../components/LeftBar";
 import RightBar from "../components/RightBar";
