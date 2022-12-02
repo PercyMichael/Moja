@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
-//import prisma from "../../../lib/prismadb";
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
+import clientPromise from "../../../lib/mongodb";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -12,7 +12,7 @@ export const authOptions = {
     }),
     // ...add more providers here
   ],
-  database: process.env.DATABASE_URL,
+  adapter: MongoDBAdapter(clientPromise),
 };
 
 export default NextAuth(authOptions);
