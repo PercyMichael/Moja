@@ -1,20 +1,20 @@
 import clientPromise from "../../lib/mongodb";
-
+//#DATABASE_URL='mongodb+srv://maja06312:kREjkacdc3iipe2X@mojaone.ivpedyz.mongodb.net/mojaOneDb'
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       const client = await clientPromise;
-      const db = client.db("sample_mflix");
+      const db = client.db("mojaOneDb");
 
       const movies = await db
-        .collection("comments")
+        .collection("events")
         .find({})
         .sort({ metacritic: -1 })
-        .limit(10)
+        .limit(20)
         .toArray();
-      const len = movies.length;
+      //const len = movies.length;
 
-      res.status(200).send(len);
+      res.status(200).json(movies);
     } catch (e) {
       console.error(e);
     }
