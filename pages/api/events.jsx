@@ -4,6 +4,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       const client = await clientPromise;
+
       const db = client.db("mojaOneDb");
 
       const movies = await db
