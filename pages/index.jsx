@@ -6,7 +6,7 @@ import RightBar from "../components/RightBar";
 import Nav from "../components/Nav";
 
 export async function getServerSideProps() {
-  const res = await fetch("https://moja.vercel.app/api/events");
+  const res = await fetch(`${NEXT_PUBLIC_HOSTNAME}/api/events`);
   const data = await res.json();
   return { props: { events: data } };
 }
