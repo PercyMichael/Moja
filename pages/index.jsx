@@ -7,8 +7,13 @@ import Nav from "../components/Nav";
 
 export async function getServerSideProps({ req, params }) {
   const host = req?.headers.host;
-  const res = await fetch(`http://${host}/api/events`);
-  const data = await res.json();
+  try {
+    const res = await fetch(`http://${host}/api/events`);
+    const data = await res.json();
+  } catch (error) {
+    console.error(error);
+  }
+
   return { props: { events: data } };
 }
 
