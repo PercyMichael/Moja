@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import EventNav from "../EventNav";
-import Nav from "../Nav";
 
 const EventDetail = () => {
   return (
