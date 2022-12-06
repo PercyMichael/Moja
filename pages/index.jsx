@@ -6,7 +6,7 @@ import RightBar from "../components/RightBar";
 import Nav from "../components/Nav";
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/events");
+  const res = await fetch("/api/events");
   const data = await res.json();
   return { props: { events: data } };
 }
