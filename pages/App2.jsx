@@ -150,7 +150,7 @@ const App2 = ({ events }) => {
         <br />
       </div>
       <div>
-        {event_title} ~ {ticket_price}~{date} ~ {location}
+        {event_title} ~ {ticket_price} ~ {date} ~ {location}
         <br />
       </div>
     </div>
