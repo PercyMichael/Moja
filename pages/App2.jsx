@@ -17,7 +17,7 @@ const App2 = ({ events }) => {
   const [location, setlocation] = useState("");
   const [ticket_price, setPrice] = useState("");
   const [date, setDate] = useState("");
-  //const [file, setFile] = useState("");
+  const [file, setFile] = useState("");
 
   useEffect(() => {
     setIsRefreshing(false);
@@ -36,17 +36,15 @@ const App2 = ({ events }) => {
       alert("no empty");
     }
 
-    /*const upload = await Upload();
+    const upload = await Upload();
 
     if (upload[1] !== 200) {
       return console.log(upload);
     }
 
     const image = upload[0].secure_url;
-    //return console.log(upload[0].url);
-    */
 
-    const body = { event_title, date, location, ticket_price };
+    const body = { event_title, date, location, ticket_price, image };
     console.log(body);
 
     const data = await fetch("http://localhost:3000/api/add_event", {
@@ -64,7 +62,7 @@ const App2 = ({ events }) => {
     }
   }
 
-  /* async function Upload() {
+  async function Upload() {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "ohallutq");
@@ -84,10 +82,9 @@ const App2 = ({ events }) => {
       return [uploaded_file, res.status];
     }
   }
-  */
 
   return (
-    <div className="mx-auto w-1/2 my-20">
+    <div data-theme="light" className="mx-auto w-1/2 my-20">
       <Toaster />
       <h1 className="font-bold py-3">User List</h1>
       <hr />
@@ -102,25 +99,18 @@ const App2 = ({ events }) => {
       <div>
         <form onSubmit={addUser}>
           <input
+            type="text"
+            placeholder="Event Name"
+            className="input input-bordered w-full max-w-xs mt-5"
             onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
-            name="name"
-            className="p-2 border"
           />
           <br />
-
-          <input
-            onChange={(e) => setDate(e.target.value)}
-            placeholder="Date"
-            name="date"
-            className="p-2 border"
-          />
 
           <input
             onChange={(e) => setlocation(e.target.value)}
             placeholder="Location"
             name="location"
-            className="p-2 border"
+            className="input input-bordered w-full max-w-xs mt-5"
           />
           <br />
 
@@ -129,22 +119,31 @@ const App2 = ({ events }) => {
             onChange={(e) => setPrice(e.target.value)}
             placeholder="Price"
             name="price"
-            className="p-2 border"
+            className="input input-bordered w-full max-w-xs mt-5"
           />
-          {/* 
-          
+          <br />
           <input
-          type="file"
-          onChange={(e) => {
-            setFile(e.target.files[0]);
-          }}
-        />
+            type="date"
+            placeholder="Event Date"
+            className="input input-bordered w-full max-w-xs mt-5"
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <br />
 
-        */}
+          <input
+            type="file"
+            className="file-input file-input-bordered w-full max-w-xs mt-5"
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+            }}
+          />
+          <br />
+
           <input
             type="submit"
             value="send"
-            className="bg-blue-800 py-2 px-3 mt-3 text-white"
+            className="btn btn-block mt-5"
+            style={{ backgroundColor: "#4C1D95" }}
           />
         </form>
 

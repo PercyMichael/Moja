@@ -13,7 +13,10 @@ export async function getServerSideProps() {
 
 const Home = ({ events }) => {
   return (
-    <div className="container mx-auto md:max-h-screen overflow-hidden lg:max-w-7xl flex">
+    <div
+      data-theme="light"
+      className="container mx-auto md:max-h-screen overflow-hidden lg:max-w-7xl flex"
+    >
       <LeftBar />
 
       {/*feed*/}
@@ -30,9 +33,10 @@ const Home = ({ events }) => {
               <div className=" bg-blend-overlay p-1">
                 <Image
                   alt="event"
-                  src={"/bike.jpg"}
+                  src={event.image || "/bike.jpg"}
                   width={900}
                   height={500}
+                  object-fit="cover"
                   className="object-cover w-full h-full rounded-2xl"
                 />
               </div>
