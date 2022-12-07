@@ -90,7 +90,7 @@ const App2 = ({ events }) => {
       <hr />
       <div className="py-3">
         {events.map((event) => {
-          return <div>{event.location}</div>;
+          return <div key={event._id}>{event.location}</div>;
         })}
         <br></br>
         <hr />

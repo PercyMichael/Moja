@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/SingleEvent.jsx", "components/singleEvent/EventDetail.jsx", "components/UserInfo.jsx", "components/RightBar.jsx", "components/Nav.jsx", "components/LeftBarRow.jsx", "components/EventNav.jsx", "components/LeftBar.jsx"  ],
   "exclude": [
     "node_modules"
   ]
