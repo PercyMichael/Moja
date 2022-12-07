@@ -11,8 +11,8 @@ export default async function addUser(req, res) {
 
   const query = await db.collection("events").insertOne(data);
   if (query.acknowledged) {
-    res.status(200).send(query);
+    return res.status(200).send(query);
   } else {
-    res.status(200);
+    return res.status(200);
   }
 }

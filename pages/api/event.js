@@ -1,5 +1,5 @@
 import clientPromise from "../../lib/mongodb";
-//DATABASE_URL='mongodb+srv://maja06312:kREjkacdc3iipe2X@mojaone.ivpedyz.mongodb.net/mojaOneDb'
+//MONGODB_URI='mongodb+srv://maja06312:kREjkacdc3iipe2X@mojaone.ivpedyz.mongodb.net/mojaOneDb'
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
