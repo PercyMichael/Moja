@@ -15,11 +15,11 @@ export default async function handler(req, res) {
         .toArray();
       //const len = movies.length;
 
-      res.status(200).json(movies);
+      return res.status(200).json(movies);
     } catch (e) {
       console.error(e);
     }
   } else {
-    res.status(400).send("error");
+    return res.status(400).send("error");
   }
 }
