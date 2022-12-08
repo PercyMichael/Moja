@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
-import Image from "next/image";
 
 export async function getServerSideProps() {
   const res = await fetch("http://localhost:3000/api/events");
