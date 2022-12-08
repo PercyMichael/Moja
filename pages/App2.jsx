@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 
-export async function getServerSideProps() {
-  const res = await fetch("http://localhost:3000/api/events");
+export async function getServerSideProps({ req, params }) {
+  const host = req?.headers.host;
+  const res = await fetch(`http://${host}/api/events`);
   const data = await res.json();
   return { props: { events: data } };
 }
