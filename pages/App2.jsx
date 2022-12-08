@@ -17,7 +17,7 @@ const App2 = ({ events }) => {
   const [location, setlocation] = useState("");
   const [ticket_price, setPrice] = useState("");
   const [date, setDate] = useState("");
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState("op");
 
   useEffect(() => {
     setIsRefreshing(false);
@@ -135,6 +135,7 @@ const App2 = ({ events }) => {
             className="file-input file-input-bordered w-full max-w-xs mt-5"
             onChange={(e) => {
               setFile(e.target.files[0]);
+              console.log(e.target.files[0].name);
             }}
           />
           <br />
@@ -150,7 +151,7 @@ const App2 = ({ events }) => {
         <br />
       </div>
       <div>
-        {event_title} ~ {ticket_price} ~ {date} ~ {location}
+        {event_title} ~ {location} ~ {ticket_price} ~ {date} ~{file.name}
         <br />
       </div>
     </div>
