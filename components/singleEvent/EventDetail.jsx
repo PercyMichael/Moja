@@ -2,20 +2,23 @@ import Image from "next/image";
 import React from "react";
 import EventNav from "../EventNav";
 
-const EventDetail = () => {
+const EventDetail = (props) => {
   return (
     <main className="bg-gray-100 w-full h-full md:border-x">
       <EventNav />
       <div className="event-detail pb-30 lg:gap-x-9 gap-y-8 md:max-h-screen md:overflow-auto">
-        <div className="flex flex-col justify-between poster px-5 py-4 bg-red-300 w-full h-96">
-          <p className="flex justify-end font-semibold">UGX 12000</p>
+        <div
+          style={{ backgroundImage: "url(/bike.jpg)" }}
+          className="flex text-white flex-col justify-between poster px-5 py-4 bg-red-300 w-full h-96"
+        >
+          <p className="flex justify-end font-semibold">{props.price}</p>
 
           <div className="event-details flex justify-between items-center">
             <div>
-              <p className="text-lg font-bold">Tigende Mukikade</p>
+              <p className="text-lg font-bold">{props.title}</p>
               <div className="flex space-x-9 py-2 text-sm">
-                <p>Location</p>
-                <p>Date</p>
+                <p>{props.location}</p>
+                <p>{props.date}</p>
               </div>
             </div>
 
