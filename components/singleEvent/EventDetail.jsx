@@ -9,7 +9,7 @@ const EventDetail = (props) => {
       <div className="event-detail pb-30 lg:gap-x-9 gap-y-8 md:max-h-screen md:overflow-auto">
         <div
           style={{ backgroundImage: "url(/bike.jpg)" }}
-          className="flex text-white flex-col justify-between poster px-5 py-4 bg-red-300 w-full h-80"
+          className="flex text-white flex-col justify-between poster px-5 py-4 bg-red-300 w-full h-[25rem] bg-center bg-contain"
         >
           <p className="flex justify-end font-semibold">{props.price}</p>
 
@@ -35,8 +35,9 @@ const EventDetail = (props) => {
             </div>
           </div>
         </div>
-
+        {/*
         <Image src={"/bike.jpg"} height={400} width={600} alt="event poster" />
+        */}
       </div>
     </main>
   );
