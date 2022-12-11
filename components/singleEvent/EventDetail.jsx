@@ -23,11 +23,11 @@ const EventDetail = (props) => {
           </div>
         </div>
         <div className="flex space-x-6 py-5 px-3">
-          <p className="bg-[#7743db] px-3 py-1 text-white rounded-full">
+          <p className="bg-[#7743db] px-3 py-1 font-light text-white rounded-full">
             Concert
           </p>
-          <p className="py-1 text-[#7743db]">12 Dec 2022</p>
-          <p className="py-1 text-[#7743db]">2:30pm</p>
+          <p className="py-1 text-[#7743db] font-light">12 Dec 2022</p>
+          <p className="py-1 text-[#7743db] font-light">2:30pm</p>
         </div>
 
         <p className="px-3 text-black font-bold text-lg break-words capitalize">
@@ -38,7 +38,7 @@ const EventDetail = (props) => {
           <span className="font-light text-gray-500 py-3">Location</span>
         </p>
 
-        <p className="text-lg px-3 text-gray-600">
+        <p className="text-md px-3 text-black">
           Checking the network cables, modem, and router Reconnecting to Wi-Fi,
           No internet Try: Checking the network cables, modem, and router
           Reconnecting to Wi-Fi
