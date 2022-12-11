@@ -5,8 +5,9 @@ import LeftBar from "../../components/LeftBar";
 import RightBar from "../../components/RightBar";
 import EventDetail from "../../components/singleEvent/EventDetail";
 
-export async function getServerSideProps({ params }) {
-  const res = await fetch(`http://localhost:3000/api/events/${params?.id}`);
+export async function getServerSideProps({ req, params }) {
+  const host = req?.headers.host;
+  const res = await fetch(`http://${host}/api/events/${params?.id}`);
   const data = await res.json();
   console.log(data, params);
   return { props: { event: data } };
