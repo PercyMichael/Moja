@@ -22,7 +22,7 @@ const EventDetail = (props) => {
             UGX 50,000
           </div>
         </div>
-        <div className="flex space-x-6 py-5 px-3">
+        <div className="flex space-x-3 py-5 px-3">
           <p className="bg-[#7743db] px-3 py-1 text-sm font-light text-white rounded-full">
             Concert
           </p>
