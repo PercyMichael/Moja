@@ -6,17 +6,15 @@ const EventNav = () => {
   return (
     <header className="md:hidden bg-white ">
       <div className="flex justify-between p-6 items-center">
-        <div className="">
-          <Link href={"/"}>
-            <Image
-              alt="Logo"
-              src={"/vercel.svg"}
-              height={300}
-              width={100}
-              className="h-8"
-            ></Image>
-          </Link>
-        </div>
+        <Link href={"/"}>
+          <Image
+            alt="Logo"
+            src={"/vercel.svg"}
+            height={300}
+            width={100}
+            className="h-8"
+          ></Image>
+        </Link>
         <div className=" bg-blue-400 text-white uppercase text-sm items-center p-2 rounded-xl font-bold cursor-pointer">
           Tickets
         </div>

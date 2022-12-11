@@ -14,6 +14,16 @@ const EventDetail = (props) => {
           width={600}
           alt="event poster"
         />
+        <div className="flex space-x-6 py-5 px-3">
+          <p className="bg-[#7743db] px-3 py-1 text-sm text-white rounded-full font-bold">
+            Concert
+          </p>
+          <p className="py-1 text-[#7743db] text-sm font-bold">
+            12,Dec,2022 at 2:30pm
+          </p>
+        </div>
+
+        <div>Title of Arnarhey</div>
       </div>
     </main>
   );
