@@ -7,7 +7,7 @@ import { MdLocationOn } from "react-icons/md";
 
 const EventDetail = (props) => {
   return (
-    <main className="w-full h-full md:border-x">
+    <main data-theme="light" className="w-full h-full md:border-x">
       <EventNav />
       <div className="event-detail bg-white pb-30 lg:gap-x-9 gap-y-8 md:max-h-screen md:overflow-auto">
         <div className="relative ">
@@ -18,7 +18,7 @@ const EventDetail = (props) => {
             width={600}
             alt="event poster"
           />
-          <div className="top-right py-1 px-3 rounded-full absolute top-3 right-4 bg-white text-[#7743db] font-semibold">
+          <div className="top-right py-1 px-3 rounded-full absolute top-3 right-4 bg-white bg-opacity-30 text-white font-semibold text-xs">
             UGX 50,000
           </div>
         </div>
@@ -43,7 +43,15 @@ const EventDetail = (props) => {
           No internet Try: Checking the network cables, modem, and router
           Reconnecting to Wi-Fi
         </p>
-        <div className="qunatity"></div>
+        <div className="qunatity flex mx-3 my-7 items-center justify-between">
+          <input
+            className="input input-bordered w-1/3"
+            type="number"
+            min={0}
+            max={25}
+          />
+          <p className="w-2/3 text-center font-bold">12000</p>
+        </div>
       </div>
       {/*paying section*/}
       <div className="bg-yellow-300 p-10 w-full my-5"></div>
