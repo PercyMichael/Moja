@@ -52,11 +52,24 @@ const EventDetail = (props) => {
             <span className="px-3">+</span>
           </p>
 
-          <p className=" text-xl font-bold">1200</p>
+          <p className=" text-xl font-bold">
+            1200<small className="text-sm font-normal"> UGX</small>
+          </p>
         </div>
       </div>
       {/*paying section*/}
-      <div className="bg-yellow-300 p-10 w-full my-5"></div>
+      <div className=" p-10 w-full my-5 justify-center items-center flex flex-col">
+        <p className="text-[#7742db] font-extrabold text-2xl">
+          1200 <small className="text-md font-normal">UGX</small>
+        </p>
+
+        <input
+          type="submit"
+          value="send"
+          className="btn btn-block mt-5"
+          style={{ backgroundColor: "#4C1D95" }}
+        />
+      </div>
     </main>
   );
 };
