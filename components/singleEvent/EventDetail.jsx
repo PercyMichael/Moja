@@ -44,13 +44,15 @@ const EventDetail = (props) => {
           Reconnecting to Wi-Fi
         </p>
         <div className="qunatity flex mx-3 my-7 items-center justify-between">
-          <input
-            className="input input-bordered w-1/3"
-            type="number"
-            min={0}
-            max={25}
-          />
-          <p className="w-2/3 text-center font-bold">12000</p>
+          <p className="flex  text-xl bg-purple-200 items-center rounded-full h-10">
+            <span className="px-3">-</span>
+            <span className="bg-[#7742db] h-10 w-10 text-white items-center flex justify-center rounded-full">
+              1
+            </span>
+            <span className="px-3">+</span>
+          </p>
+
+          <p className=" text-xl font-bold">1200</p>
         </div>
       </div>
       {/*paying section*/}
