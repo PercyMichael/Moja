@@ -1,11 +1,12 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import EventNav from "../EventNav";
 
 //icons
 import { MdLocationOn } from "react-icons/md";
 
 const EventDetail = (props) => {
+  const [quantity, setQuantity] = useState(0);
   return (
     <main data-theme="light" className="w-full h-full md:border-x">
       <EventNav />
@@ -43,13 +44,21 @@ const EventDetail = (props) => {
           No internet Try: Checking the network cables, modem, and router
           Reconnecting to Wi-Fi
         </p>
-        <div className="qunatity flex mx-3 my-7 items-center justify-between">
+        <div className="qunatity flex py-5 mx-3 my-7 items-center justify-between">
           <p className="flex  text-xl bg-purple-200 items-center rounded-full h-10">
-            <span className="px-3">-</span>
-            <span className="bg-[#7742db] h-10 w-10 text-white items-center flex justify-center rounded-full">
-              1
+            <span className="px-3" onClick={(e) => setQuantity(quantity - 1)}>
+              -
             </span>
-            <span className="px-3">+</span>
+            <input
+              onChange={(e) => alert(e.target.value)}
+              value={quantity}
+              disabled
+              className="text-center bg-[#7742db] h-10 w-10 text-white rounded-full"
+            />
+
+            <span className="px-3" onClick={(e) => setQuantity(quantity + 1)}>
+              +
+            </span>
           </p>
 
           <p className=" text-xl font-bold">
@@ -58,7 +67,7 @@ const EventDetail = (props) => {
         </div>
       </div>
       {/*paying section*/}
-      <div className=" p-10 w-full my-5 justify-center items-center flex flex-col">
+      <div className="border-t p-10 w-full my-5 justify-center items-center flex flex-col">
         <p className="text-[#7742db] font-extrabold text-2xl">
           1200 <small className="text-md font-normal">UGX</small>
         </p>
@@ -66,7 +75,7 @@ const EventDetail = (props) => {
         <input
           type="submit"
           value="send"
-          className="btn btn-block mt-5"
+          className="btn btn-block mt-5 w-2/2"
           style={{ backgroundColor: "#4C1D95" }}
         />
       </div>
