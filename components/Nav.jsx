@@ -16,9 +16,12 @@ const Nav = () => {
             ></Image>
           </Link>
         </div>
-        <div className=" bg-blue-400 text-white uppercase text-sm items-center p-2 rounded-xl font-bold cursor-pointer">
+        <Link
+          href={"/user/dashboard"}
+          className=" bg-blue-400 text-white uppercase text-sm items-center p-2 rounded-xl font-bold cursor-pointer"
+        >
           Tickets
-        </div>
+        </Link>
       </div>
       <nav className="bg-red-200 py-4 flex items-center justify-evenly text-lg md:hidden">
         <div>Concerts</div>
