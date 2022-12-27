@@ -1,5 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  MdOutlineSportsBaseball,
+  MdOutlineTheaterComedy,
+  MdOutlineTheaters,
+} from "react-icons/md";
 
 const Nav = () => {
   return (
@@ -23,11 +28,19 @@ const Nav = () => {
           Tickets
         </Link>
       </div>
-      <nav className="bg-red-200 py-4 flex items-center justify-evenly text-lg md:hidden">
-        <div>Concerts</div>
-        <div>Sports</div>
-        <div>Cinemas</div>
-        <div>Shows</div>
+      <nav className=" py-4 flex items-center justify-evenly text-lg md:hidden">
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineSportsBaseball className="text-[#7742db]" />
+          <div>Sports</div>
+        </div>
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineTheaters className="text-[#7742db]" />
+          <div>Cinemas</div>
+        </div>
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineTheaterComedy className="text-[#7742db]" />
+          <div>Shows</div>
+        </div>
       </nav>
     </header>
   );

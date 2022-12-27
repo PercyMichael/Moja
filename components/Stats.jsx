@@ -2,24 +2,22 @@ import React from "react";
 
 const Stats = () => {
   return (
-    <div className="stats bg-primary text-primary-content">
-      <div className="stat">
-        <div className="stat-title">Account balance</div>
-        <div className="stat-value">$89,400</div>
-        <div className="stat-actions">
-          <button className="btn btn-sm btn-success">Add funds</button>
+    <>
+      <div className="flex justify-between align-middle bg-white m-3 p-4">
+        <div id="tickets-bought" className="">
+          <div className="stat-value text-[#7742db]">4,200</div>
+          <div className="stat-title">Tickets Bought</div>
+        </div>
+        <div id="tickets-sold">
+          <div className="stat-value text-[#7742db]">4,200</div>
+          <div className="stat-title">Tickets Sold</div>
+        </div>
+        <div id="events">
+          <div className="stat-value text-[#7742db]">4,200</div>
+          <div className="stat-title">Events</div>
         </div>
       </div>
-
-      <div className="stat">
-        <div className="stat-title">Current balance</div>
-        <div className="stat-value">$89,400</div>
-        <div className="stat-actions">
-          <button className="btn btn-sm">Withdrawal</button>
-          <button className="btn btn-sm">deposit</button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 
