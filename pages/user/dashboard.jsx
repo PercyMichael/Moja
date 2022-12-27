@@ -12,7 +12,10 @@ const dashborad = () => {
         <Nav />
         <Stats />
         <div id="my-tickets">
-          <div id="top-nav" className="flex w-full justify-between px-6">
+          <div
+            id="top-nav"
+            className="flex w-full justify-between px-6 h-1/2 overflow-scroll"
+          >
             <h6>Recent Tickets</h6>
             <h6 className="text-sm text-gray-500">See All</h6>
           </div>
