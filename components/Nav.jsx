@@ -30,15 +30,15 @@ const Nav = () => {
       </div>
       <nav className=" py-4 flex items-center justify-evenly text-lg md:hidden">
         <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
-          <MdOutlineSportsBaseball className="text-[#7742db]" />
+          <MdOutlineSportsBaseball className="text-[#7742db] text-2xl" />
           <div>Sports</div>
         </div>
         <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
-          <MdOutlineTheaters className="text-[#7742db]" />
+          <MdOutlineTheaters className="text-[#7742db] text-2xl" />
           <div>Cinemas</div>
         </div>
         <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
-          <MdOutlineTheaterComedy className="text-[#7742db]" />
+          <MdOutlineTheaterComedy className="text-[#7742db] text-2xl" />
           <div>Shows</div>
         </div>
       </nav>
