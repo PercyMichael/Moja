@@ -3,7 +3,7 @@ import React from "react";
 const Stats = () => {
   return (
     <>
-      <div className="flex text-white justify-evenly align-middle m-3 py-7 px-3 shadow rounded-xl bg-[#7742db]">
+      <div className="flex text-white justify-evenly align-middle mx-3 my-11 py-7 px-3 shadow rounded-xl bg-[#7742db]">
         <div id="tickets-bought" className="flex flex-col items-center">
           <div className=" font-bold text-2xl">4,200</div>
           <div>Tickets Bought</div>
