@@ -1,12 +1,27 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import EventNav from "../EventNav";
+import TicketChochoce from "./TicketChoice";
+import uuid from "react-uuid";
 
 //icons
 import { MdLocationOn } from "react-icons/md";
 
 const EventDetail = (props) => {
-  const [quantity, setQuantity] = useState(1);
+  const [price, setPrice] = useState(0);
+
+  async function buy_ticket() {
+    {
+      /*code to pay, after pay then create ticket*/
+    }
+    const body = { price, uuid: price + "-" + uuid() };
+    console.log(body);
+    /*const data = await fetch("http://localhost:3000/api/buy_ticket", {
+        method: "POST",
+        body: JSON.stringify(body, uuid()),
+      });
+      */
+  }
   return (
     <main data-theme="light" className="w-full h-full md:border-x">
       <EventNav />
@@ -44,50 +59,35 @@ const EventDetail = (props) => {
           No internet Try: Checking the network cables, modem, and router
           Reconnecting to Wi-Fi
         </p>
-        <div className="qunatity flex py-5 mx-3 my-7 items-center justify-between">
-          <p className="flex  text-xl bg-purple-200 items-center rounded-full h-10">
-            <span
-              className="px-3 cursor-pointer"
-              onClick={(e) => setQuantity(quantity - 1)}
-            >
-              -
-            </span>
-            <input
-              value={quantity}
-              disabled
-              className="text-center bg-[#7742db] h-10 w-10 text-white rounded-full"
-            />
-
-            <span
-              className="px-3 cursor-pointer"
-              price={props.price}
-              onClick={(e) => {
-                setQuantity(quantity + 1);
-                //console.log(e.target.getAttribute("price") + "*" + quantity);
-              }}
-            >
-              +
-            </span>
-          </p>
-
-          <p className=" text-xl font-bold">
-            {quantity} * {props.price}
-            <small className="text-sm font-normal"> UGX</small>
-          </p>
+        {/*choose ticket*/}
+        <div className="qunatity space-y-6 py-2 mx-3 my-7 items-center justify-between">
+          <TicketChochoce
+            price={100}
+            name="haha"
+            on
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <TicketChochoce
+            price={200}
+            name="haha"
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <TicketChochoce
+            price={300}
+            name="haha"
+            onChange={(e) => setPrice(e.target.value)}
+          />
         </div>
       </div>
       {/*paying section*/}
       <div className="border-t px-2 py-10 w-full my-5 justify-center items-center flex flex-col">
-        <p className="text-[#7742db] font-extrabold text-2xl">
-          {quantity * props.price}{" "}
-          <small className="text-md font-normal">UGX</small>
-        </p>
-
+        <p className="font-bold text-[#7743db] text-lg">UGX {price}</p>
         <input
           type="submit"
-          value="send"
+          value="BUY TICKET"
           className="btn btn-block mt-5 w-2/2"
           style={{ backgroundColor: "#4C1D95" }}
+          onClick={buy_ticket}
         />
       </div>
     </main>
