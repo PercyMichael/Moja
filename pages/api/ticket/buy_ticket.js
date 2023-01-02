@@ -1,23 +1,20 @@
 import clientPromise from "../../../lib/mongodb";
-import { ObjectId } from "mongodb";
 
-//MONGODB_URI='mongodb+srv://maja06312:kREjkacdc3iipe2X@mojaone.ivpedyz.mongodb.net/mojaOneDb'
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    try {
-      //const event_id = req.query.event;
-      //const unique_code = event_id.uuid();
-      const client = await clientPromise;
-      const db = client.db("mojaOneDb");
+export default async function addUser(req, res) {
+  //const body =
+  '{"event_title":"Ladys Night","date":"Feb.30,2900","ticket_price":2300,"likes":120,"location":"Kololo ,Strip"}';
+  //const data = JSON.parse(req.body);
 
-      const movies = await db.collection("tickets").insertOne(data);
-      //console.log(event_id);
+  const data = JSON.parse(req.body);
 
-      return res.status(200).json(movies);
-    } catch (e) {
-      console.error(e);
-    }
+  const client = await clientPromise;
+  const db = client.db("mojaOneDb");
+
+  const query = await db.collection("tickets").insertOne(data);
+  //check if data is inserted
+  if (query.acknowledged) {
+    return res.status(200).send(query);
   } else {
-    return res.status(400).send("error");
+    return res.status(200);
   }
 }
