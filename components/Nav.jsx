@@ -1,5 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  MdOutlineSportsBaseball,
+  MdOutlineTheaterComedy,
+  MdOutlineTheaters,
+} from "react-icons/md";
 
 const Nav = () => {
   return (
@@ -16,15 +21,26 @@ const Nav = () => {
             ></Image>
           </Link>
         </div>
-        <div className=" bg-blue-400 text-white uppercase text-sm items-center p-2 rounded-xl font-bold cursor-pointer">
+        <Link
+          href={"/user/dashboard"}
+          className=" bg-blue-400 text-white uppercase text-sm items-center p-2 rounded-xl font-bold cursor-pointer"
+        >
           Tickets
-        </div>
+        </Link>
       </div>
-      <nav className="bg-red-200 py-4 flex items-center justify-evenly text-lg md:hidden">
-        <div>Concerts</div>
-        <div>Sports</div>
-        <div>Cinemas</div>
-        <div>Shows</div>
+      <nav className=" py-4 flex items-center justify-evenly text-lg md:hidden">
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineSportsBaseball className="text-[#7742db] text-xl" />
+          <div>Sports</div>
+        </div>
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineTheaters className="text-[#7742db] text-xl" />
+          <div>Cinemas</div>
+        </div>
+        <div className="border px-2 py-1 rounded-full flex items-center space-x-2 align-baseline">
+          <MdOutlineTheaterComedy className="text-[#7742db] text-xl" />
+          <div>Shows</div>
+        </div>
       </nav>
     </header>
   );
