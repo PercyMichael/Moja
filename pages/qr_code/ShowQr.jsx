@@ -6,10 +6,15 @@ const ShowQr = () => {
   return (
     <div>
       {/*start qr*/}
+      <p>Hee</p>
       <div
         id="ticket"
-        className="align-center items-center md:w-1/2 m-6 rounded-xl"
+        className="border shadow-sm rounded-md align-center items-center md:w-1/2 m-6"
       >
+        <div className="p-6 font-semibold text-black text-2xl text-center">
+          Thank You!
+          <p className="text-center text-gray-300">Percy</p>
+        </div>
         <Image
           className=""
           src={"/bike.jpg"}
@@ -18,18 +23,22 @@ const ShowQr = () => {
           alt="event poster"
         />
 
-        <div className=" p-6 flex flex-col items-center shadow-md rounded-xl">
-          <h1 className="font-medium text-lg text-[#7742db] py-3">
-            Event Title
-          </h1>
+        <h1 className="text-lg font-bold text-black text-center py-3">
+          Event Title
+        </h1>
+        <p className="text-center">Happenning @ 3 Nove 2023 at 3:30pm</p>
+        <div className=" p-6 flex flex-col items-center">
           <QRCodeSVG
-            className="border-8 border-white"
+            className="border-8]"
             value="a"
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             bgColor={"#FFf"}
             fgColor={"#7742db"}
           />
+          <div id="ticket-footer" className="mt-5">
+            www.google.com
+          </div>
         </div>
       </div>
       {/*end qr*/}

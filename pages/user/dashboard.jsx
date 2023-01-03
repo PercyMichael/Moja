@@ -1,8 +1,17 @@
 import React from "react";
 import Nav from "../../components/Nav";
-import Stats from "../../components/Stats";
+import Stats from "../../components/dashboard/Stats";
+import Ticket from "../../components/dashboard/Ticket";
 
-const dashborad = () => {
+export async function getServerSideProps({ req, params }) {
+  const host = req?.headers.host;
+  const fetch_tickets = await fetch(`http://${host}/api/user/get_tickets`);
+  const data = await fetch_tickets.json();
+
+  return { props: { tickets: data } };
+}
+
+const dashborad = ({ tickets }) => {
   return (
     <div
       data-theme="light"
@@ -11,6 +20,7 @@ const dashborad = () => {
       <main className="w-full h-full md:border-x">
         <Nav />
         <Stats />
+
         <div id="my-tickets">
           <div
             id="top-nav"
@@ -20,66 +30,14 @@ const dashborad = () => {
             <h6 className="text-sm text-gray-500">See All</h6>
           </div>
           {/*tickets*/}
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
-          <div
-            id="ticket"
-            className="py-3 flex justify-between items-center border-b px-6"
-          >
-            <div className="flex flex-col">
-              <h4 className="text-lg font-bold">Hello</h4>
-              <div className="text-sm text-gray-500">Expired . 40 days ago</div>
-            </div>
-            <h4 className="text-medium font-bold text-[#7742db]">UGX 20,000</h4>
-          </div>
+          {tickets.map((ticket) => (
+            <Ticket
+              key={ticket._id}
+              price={ticket.price}
+              event_title={ticket.event_title}
+            />
+          ))}
+
           {/*end tickets*/}
         </div>
       </main>
