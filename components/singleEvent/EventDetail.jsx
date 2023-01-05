@@ -13,7 +13,7 @@ const EventDetail = (props) => {
         <div className="relative ">
           <Image
             className=" rounded-b-2xl shadow-xl"
-            src={"/bike.jpg"}
+            src={props.image || "/bike.jpg"}
             height={400}
             width={600}
             alt="event poster"

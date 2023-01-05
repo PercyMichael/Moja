@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import uuid from "react-uuid";
+import toast, { Toaster } from "react-hot-toast";
 
 import LeftBar from "../../components/LeftBar";
 import RightBar from "../../components/RightBar";
@@ -24,9 +25,12 @@ export async function getServerSideProps({ req, params }) {
 const SingleEvent = ({ event }) => {
   const [price, setPrice] = useState(0);
   const event_title = event.event_title;
+  const event_date = event.date;
+  const event_image = event.image;
 
   //buy ticket
   async function buy_ticket() {
+    const laodToast = toast.loading("Creating...");
     {
       /*code to pay, after pay then create ticket*/
     }
@@ -35,6 +39,8 @@ const SingleEvent = ({ event }) => {
       price,
       uuid: price + "-" + uuid(),
       event_title: event_title,
+      date: event_date,
+      image: event_image,
     };
     console.log(body);
     const data = await fetch("http://localhost:3000/api/ticket/buy_ticket", {
@@ -57,6 +63,7 @@ const SingleEvent = ({ event }) => {
     >
       <LeftBar />
       <EventDetail
+        image={event.image}
         title={event.event_title}
         date={event.date}
         location={event.location}

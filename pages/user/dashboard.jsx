@@ -35,6 +35,7 @@ const dashborad = ({ tickets }) => {
               key={ticket._id}
               price={ticket.price}
               event_title={ticket.event_title}
+              id={ticket._id}
             />
           ))}
 
