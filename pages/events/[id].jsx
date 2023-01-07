@@ -45,7 +45,7 @@ const SingleEvent = ({ event, host }) => {
     };
     console.log(body);
 
-    const data = await fetch(`http://${host}/api/ticket/buy_ticket`, {
+    const data = await fetch(`https://${host}/api/ticket/buy_ticket`, {
       method: "POST",
       body: JSON.stringify(body),
     });
