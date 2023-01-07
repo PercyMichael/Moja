@@ -12,18 +12,21 @@ import TicketChoice from "../../components/singleEvent/TicketChoice";
   /*fetch event info*/
 }
 export async function getServerSideProps({ req, params }) {
-  const host = req?.headers.host;
-  const h = req.headers.referer;
-  const res = await fetch(`http://${host}/api/events/${params?.id}`);
+  let host = req?.headers.host;
+  const protocol = req.secure ? "https" : "http";
+  const baseUrl = `${protocol}://${host}`;
+  const res = await fetch(`${baseUrl}/api/events/${params.id}`);
   const data = await res.json();
-  console.log(data, params, h);
-  return { props: { event: data } };
+
+  console.log("prot:", baseUrl);
+  console.log(data, params);
+  return { props: { event: data, baseUrl } };
 }
 {
   /*end*/
 }
 
-const SingleEvent = ({ event, host }) => {
+const SingleEvent = ({ event, baseUrl }) => {
   const [price, setPrice] = useState(0);
   const event_title = event.event_title;
   const event_date = event.date;
@@ -43,9 +46,9 @@ const SingleEvent = ({ event, host }) => {
       date: event_date,
       image: event_image,
     };
-    console.log(body);
+    console.log(body, baseUrl);
 
-    const data = await fetch(`https://${host}/api/ticket/buy_ticket`, {
+    const data = await fetch(`${baseUrl}/api/ticket/buy_ticket`, {
       method: "POST",
       body: JSON.stringify(body),
     });
