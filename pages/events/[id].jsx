@@ -16,13 +16,13 @@ export async function getServerSideProps({ req, params }) {
   const res = await fetch(`http://${host}/api/events/${params?.id}`);
   const data = await res.json();
   console.log(data, params);
-  return { props: { event: data } };
+  return { props: { event: data, host } };
 }
 {
   /*end*/
 }
 
-const SingleEvent = ({ event }) => {
+const SingleEvent = ({ event, host }) => {
   const [price, setPrice] = useState(0);
   const event_title = event.event_title;
   const event_date = event.date;
@@ -43,13 +43,14 @@ const SingleEvent = ({ event }) => {
       image: event_image,
     };
     console.log(body);
-    const data = await fetch("http://localhost:3000/api/ticket/buy_ticket", {
+
+    const data = await fetch(`http://${host}/api/ticket/buy_ticket`, {
       method: "POST",
       body: JSON.stringify(body),
     });
 
     if (data.status === 200) {
-      console.log("Ok");
+      console.log("Ok:");
     }
   }
   //end buying

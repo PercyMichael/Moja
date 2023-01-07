@@ -12,7 +12,7 @@ export async function getServerSideProps({ req, params }) {
   return { props: { ticket: data } };
 }
 
-const Ticket = ({ ticket }) => {
+const Ticket = ({ ticket, hosty }) => {
   return (
     <div
       data-theme="light"
