@@ -13,10 +13,11 @@ import TicketChoice from "../../components/singleEvent/TicketChoice";
 }
 export async function getServerSideProps({ req, params }) {
   const host = req?.headers.host;
+  const h = req.headers.referer;
   const res = await fetch(`http://${host}/api/events/${params?.id}`);
   const data = await res.json();
-  console.log(data, params);
-  return { props: { event: data, host } };
+  console.log(data, params, h);
+  return { props: { event: data } };
 }
 {
   /*end*/
@@ -51,6 +52,7 @@ const SingleEvent = ({ event, host }) => {
 
     if (data.status === 200) {
       console.log("Ok:");
+      toast.success("Created tht ticket", { id: laodToast });
     }
   }
   //end buying
@@ -62,6 +64,7 @@ const SingleEvent = ({ event, host }) => {
       data-theme="light"
       className="container mx-auto md:max-h-screen overflow-hidden lg:max-w-7xl flex flex-col"
     >
+      <Toaster />
       <LeftBar />
       <EventDetail
         image={event.image}

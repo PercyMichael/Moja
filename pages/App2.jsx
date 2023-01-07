@@ -6,10 +6,10 @@ export async function getServerSideProps({ req, params }) {
   const host = req?.headers.host;
   const res = await fetch(`http://${host}/api/events`);
   const data = await res.json();
-  return { props: { events: data } };
+  return { props: { events: data, host } };
 }
 
-const App2 = ({ events }) => {
+const App2 = ({ events, host }) => {
   const router = useRouter();
 
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -45,9 +45,9 @@ const App2 = ({ events }) => {
     const image = upload[0].secure_url;
 
     const body = { event_title, date, location, ticket_price, image };
-    console.log(body);
+    console.log(body, host);
 
-    const data = await fetch("http://localhost:3000/api/add_event", {
+    const data = await fetch(`http://${host}/api/add_event`, {
       method: "POST",
       body: JSON.stringify(body),
     });
