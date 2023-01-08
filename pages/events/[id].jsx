@@ -13,7 +13,14 @@ import TicketChoice from "../../components/singleEvent/TicketChoice";
 }
 export async function getServerSideProps({ req, params }) {
   let host = req?.headers.host;
-  const protocol = req.secure ? "https" : "https";
+  let protocol;
+  if (process.env.NODE_ENV === "production") {
+    // In production, assume the app is being served over HTTPS
+    protocol = "https";
+  } else {
+    // In development, use the protocol specified in the incoming request
+    protocol = "http";
+  }
   const baseUrl = `${protocol}://${host}`;
   const res = await fetch(`${baseUrl}/api/events/${params.id}`);
   const data = await res.json();
