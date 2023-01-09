@@ -61,7 +61,7 @@ const SingleEvent = ({ event, baseUrl }) => {
     });
 
     if (data.status === 200) {
-      console.log("Ok:", baseUrl);
+      //console.log("Ok:", baseUrl);
       toast.success("Created tht ticket", { id: laodToast });
     } else {
       toast.error(`"Error "`, { id: laodToast });
