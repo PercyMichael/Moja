@@ -1,5 +1,5 @@
-import React from "react";
-import QrScan from "react-qr-reader";
+import React, { useState } from "react";
+import QrReader from "react-qr-scanner";
 
 const ScanTicket = () => {
   const [qrscan, setQrscan] = useState("No result");
@@ -17,7 +17,7 @@ const ScanTicket = () => {
     <div>
       <center>
         <div style={{ marginTop: 30 }}>
-          <QrScan
+          <QrReader
             delay={300}
             onError={handleError}
             onScan={handleScan}
