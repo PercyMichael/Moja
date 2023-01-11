@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@next-auth/mongodb-adapter": "^1.1.1",
+    "@yudiel/react-qr-scanner": "^1.0.8",
     "daisyui": "^2.42.1",
     "mongodb": "^4.12.1",
     "next": "latest",

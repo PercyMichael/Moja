@@ -1,11 +1,11 @@
-import React from "react";
-import QRScan from "../../components/QrScan";
+import { QrScanner } from "@yudiel/react-qr-scanner";
 
-export default function App() {
+const ScanTicket = () => {
   return (
-    <div className="App">
-      <h1>Hello QR Code Reader</h1>
-      <QRScan />
-    </div>
+    <QrScanner
+      onDecode={(result) => console.log(result)}
+      onError={(error) => console.log(error?.message)}
+    />
   );
-}
+};
+export default ScanTicket;
